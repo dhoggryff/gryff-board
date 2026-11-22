@@ -1,0 +1,768 @@
+/* ГОСТЕВОЕ ПРИВЕТСТВИЕ */
+
+.hall-home-welcome {
+    --gw-image: url("https://raw.githubusercontent.com/kevahawkins/hawkinsimgs/refs/heads/main/welcome-background.png");
+    --gw-gold: #b58b56;
+
+    position: relative;
+    isolation: isolate;
+
+    width: calc(100% - 64px);
+    max-width: 940px;
+
+    margin: 44px auto 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+
+    border: none !important;
+    outline: none !important;
+    background: none !important;
+    box-shadow: none !important;
+
+    color: #ead9bd;
+    text-align: center;
+}
+
+/* Убираем дублирующий заголовок над приветствием */
+
+.hall-home-intro:has(.hall-home-welcome)>h2 {
+    display: none;
+}
+
+/* Верхний и нижний разделители */
+
+.hall-home-welcome::before,
+.hall-home-welcome::after {
+    content: "◆";
+
+    display: block;
+    height: 18px;
+
+    color: var(--gw-gold);
+    font: 13px/18px Georgia, serif;
+    text-align: center;
+
+    background:
+        linear-gradient(var(--gw-gold),
+            var(--gw-gold)) left center / calc(50% - 13px) 1px no-repeat,
+
+        linear-gradient(var(--gw-gold),
+            var(--gw-gold)) right center / calc(50% - 13px) 1px no-repeat;
+}
+
+/* Основной блок: портрет слева, текст справа */
+
+.hall-home-welcome>.row {
+    position: relative;
+    isolation: isolate;
+
+    display: grid !important;
+    grid-template-columns: 40% minmax(0, 60%);
+
+    align-items: center !important;
+    justify-content: normal !important;
+    gap: 0 !important;
+
+    width: 100%;
+    min-height: 475px;
+
+    margin: 0 !important;
+    padding: 46px 32px !important;
+    box-sizing: border-box;
+}
+
+/* Фоновая картинка с плавными краями */
+
+.hall-home-welcome>.row::before {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        var(--gw-image) center center / cover no-repeat;
+
+    -webkit-mask-image:
+        linear-gradient(to right,
+            transparent,
+            #000 7%,
+            #000 93%,
+            transparent),
+        linear-gradient(to bottom,
+            transparent,
+            #000 9%,
+            #000 88%,
+            transparent);
+
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+        linear-gradient(to right,
+            transparent,
+            #000 7%,
+            #000 93%,
+            transparent),
+        linear-gradient(to bottom,
+            transparent,
+            #000 9%,
+            #000 88%,
+            transparent);
+
+    mask-composite: intersect;
+}
+
+/* Колонки */
+
+.hall-home-welcome>.row>.col {
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.hall-home-welcome>.row>.col:first-of-type {
+    min-height: 1px;
+}
+
+/* Подложка под текст */
+
+.hall-home-welcome>.row>.col:last-of-type {
+    padding: 26px 24px !important;
+
+    background: rgba(29, 9, 15, 0.66);
+    border: none;
+    border-radius: 0;
+
+    color: #ead9bd;
+    text-align: left;
+}
+
+/* Убираем лишние переносы между блоками */
+
+.hall-home-welcome>br,
+.hall-home-welcome>.row>br {
+    display: none !important;
+}
+
+/* Заголовок */
+
+.hall-home-welcome h2 {
+    margin: 0 0 22px !important;
+    padding: 0 !important;
+
+    color: #f2e2c7 !important;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 2.65vw, 34px) !important;
+    font-weight: 400 !important;
+    line-height: 1.22 !important;
+
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* Разделитель внутри текстовой панели */
+
+.hall-home-welcome h2::after {
+    content: "◆";
+
+    display: block;
+    height: 18px;
+    margin-top: 19px;
+
+    color: var(--gw-gold);
+    font: 11px/18px Georgia, serif;
+    text-align: center;
+
+    background:
+        linear-gradient(to right,
+            transparent,
+            var(--gw-gold)) left center / calc(50% - 12px) 1px no-repeat,
+
+        linear-gradient(to left,
+            transparent,
+            var(--gw-gold)) right center / calc(50% - 12px) 1px no-repeat;
+}
+
+/* Основной текст */
+
+.hall-home-welcome p {
+    margin: 0 0 25px !important;
+
+    color: #e4d2bb;
+    font: 17px/1.65 Georgia, "Times New Roman", serif;
+}
+
+/* Контейнер кнопок */
+
+.hall-home-welcome .bb-center {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 10px;
+
+    margin: 0 !important;
+    text-align: left;
+}
+
+.hall-home-welcome .bb-center>br {
+    display: none;
+}
+
+/* Обе кнопки */
+
+.hall-home-welcome a.bb-button {
+    display: inline-flex !important;
+
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 140px;
+
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 44px;
+
+    margin: 0 !important;
+    padding: 10px 14px !important;
+    box-sizing: border-box;
+
+    border: 1px solid var(--gw-gold) !important;
+    border-radius: 2px !important;
+
+    background: rgba(60, 12, 24, 0.64) !important;
+    color: #f0dcba !important;
+
+    box-shadow: none !important;
+
+    font: 15px/1.3 Georgia, "Times New Roman", serif !important;
+    text-align: center;
+    text-decoration: none !important;
+    text-transform: none;
+
+    transform: none !important;
+    filter: none !important;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s;
+}
+
+.hall-home-welcome a.bb-button>i.none {
+    display: none;
+}
+
+/* Наведение и выделение с клавиатуры */
+
+.hall-home-welcome a.bb-button:hover {
+    background: rgba(100, 30, 44, 0.88) !important;
+    border-color: #dfbd82 !important;
+}
+
+.hall-home-welcome a.bb-button:focus-visible {
+    outline: 2px solid #f0dcba;
+    outline-offset: 4px;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 700px) {
+    .hall-home-welcome {
+        width: calc(100% - 24px);
+        margin-top: 28px !important;
+    }
+
+    .hall-home-welcome>.row {
+        grid-template-columns: minmax(0, 1fr);
+
+        min-height: 0;
+        padding: 290px 18px 38px !important;
+    }
+
+    .hall-home-welcome>.row::before {
+        background-position: 30% top;
+    }
+
+    .hall-home-welcome>.row>.col:first-of-type {
+        display: none;
+    }
+
+    .hall-home-welcome>.row>.col:last-of-type {
+        padding: 22px 18px !important;
+    }
+
+    .hall-home-welcome h2 {
+        font-size: 26px !important;
+    }
+
+    .hall-home-welcome p {
+        font-size: 16px;
+    }
+}
+
+
+/* Гостевая главная: заголовок по центру */
+.hall-home-welcome:has(a[href*="mode=login"]) h2 {
+    text-align: center !important;
+    text-indent: 0 !important;
+}
+
+/* Основной текст по ширине, без абзацного отступа */
+.hall-home-welcome:has(a[href*="mode=login"]) p {
+    text-align: justify !important;
+    text-indent: 0 !important;
+}
+
+/* МОБИЛЬНАЯ АВТОРИЗОВАННАЯ ГЛАВНАЯ */
+
+@media (max-width: 700px) {
+
+    /* Основной контейнер */
+
+    body.section-index:has(.home-faculty-statistics) #wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-inline: auto !important;
+        box-sizing: border-box;
+    }
+
+    body.section-index:has(.home-faculty-statistics) main.hd-chunk {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-inline: 12px !important;
+        box-sizing: border-box;
+    }
+
+    /* Шапка */
+
+    body.section-index:has(.home-faculty-statistics) .site-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-inline: 0 !important;
+        box-sizing: border-box;
+    }
+
+    body.section-index:has(.home-faculty-statistics) .site-header .page-description {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 58px;
+        padding: 12px 30px !important;
+        box-sizing: border-box;
+    }
+
+    body.section-index:has(.home-faculty-statistics) .page-description h1 {
+        max-width: 100%;
+        margin: 0 !important;
+
+        font-size: clamp(18px, 5.5vw, 25px) !important;
+        line-height: 1.25 !important;
+        text-align: center;
+
+        white-space: normal !important;
+        overflow-wrap: anywhere;
+    }
+
+    /* Уменьшаем флажки */
+
+    body.section-index:has(.home-faculty-statistics) .site-header::before,
+    body.section-index:has(.home-faculty-statistics) .site-header::after {
+        width: 44px !important;
+        height: 117px !important;
+        top: 0 !important;
+
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat !important;
+    }
+
+    /* Строка «В Башне» */
+
+    body.section-index:has(.home-faculty-statistics) .old-school-statistics {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        padding: 12px 16px !important;
+        box-sizing: border-box;
+
+        font-size: 12px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Главная для авторизованных — вариант 10. */
+.hall-home:has(> .home-faculty-statistics) {
+    --gh-gold: #e8bd74;
+    --gh-line: #b78a50;
+    --gh-ink: #fff0dc;
+
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .28fr) minmax(0, .72fr);
+    grid-template-areas: "news news cup" "new top top" "button button button";
+    gap: clamp(12px, 2vw, 22px);
+    width: calc(100% - 36px);
+    max-width: 940px;
+    margin: 22px auto !important;
+    padding: clamp(12px, 2vw, 24px) !important;
+    box-sizing: border-box;
+    border: 1px solid var(--gh-line);
+    border-radius: 12px;
+    background: #2c070827;
+    color: var(--gh-ink);
+    font: 16px/1.5 Georgia, "Times New Roman", serif;
+}
+
+.hall-home > .home-faculty-statistics { display: contents !important; }
+
+.hall-home .home-faculty-competition,
+.hall-home .home-latest-sorted,
+.hall-home .home-best-students,
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    color: var(--gh-ink);
+    overflow-wrap: anywhere;
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news {
+    grid-area: news;
+    padding: clamp(14px, 2vw, 23px) !important;
+    border: 1px solid var(--gh-line) !important;
+    border-radius: 11px;
+    background: #3006093b !important;
+}
+
+.hall-home .home-faculty-competition {
+    grid-area: cup;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 13px !important;
+    border: 3px double var(--gh-gold) !important;
+    border-radius: 13px;
+    background: #30060936 !important;
+    text-align: center;
+}
+
+.hall-home .home-faculty-competition::before {
+    content: "";
+    width: clamp(70px, 11vw, 108px);
+    height: 64px;
+    background: var(--gh-trophy) center / contain no-repeat;
+    margin-bottom: 5px;
+}
+
+.hall-home .home-latest-sorted { grid-area: new; }
+.hall-home .home-best-students { grid-area: top; }
+
+.hall-home .home-latest-sorted,
+.hall-home .home-best-students {
+    padding: 0 0 7px !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    text-align: left;
+}
+
+.hall-home .home-best-students::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * clamp(12px, 2vw, 22px) / 2);
+    top: 38px;
+    bottom: 7px;
+    width: 1px;
+    background: var(--gh-line);
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news::before,
+.hall-home .home-latest-sorted::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news::before {
+    inset: 20% 4% 10% auto;
+    width: 24%;
+    background-image: var(--gh-lion);
+    opacity: .14;
+}
+
+.hall-home .home-latest-sorted::before {
+    right: 0;
+    bottom: 0;
+    width: min(50%, 172px);
+    height: min(100%, 155px);
+    background-image: var(--gh-tower);
+    opacity: .13;
+    -webkit-mask-image: radial-gradient(ellipse, #000 27%, transparent 72%);
+    mask-image: radial-gradient(ellipse, #000 27%, transparent 72%);
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news > h4,
+.hall-home .home-faculty-statistics-title {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px !important;
+    padding: 0 0 8px !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--gh-line) !important;
+    background: none !important;
+    color: var(--gh-gold) !important;
+    font: 700 clamp(15px, 2vw, 22px)/1.25 Georgia, serif;
+    text-transform: uppercase;
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-news > h4::before {
+    content: "◆";
+    margin-right: .55em;
+    font-size: .7em;
+}
+
+.hall-home .home-faculty-competition-values {
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    color: var(--gh-gold);
+}
+.hall-home .home-faculty-points-value { font-size: 1.35em; }
+.hall-home .home-faculty-place::before { content: "· "; margin-right: 5px; }
+
+.hall-home:has(> .home-faculty-statistics) .latest-news-title {
+    margin: 0 0 7px !important;
+    color: var(--gh-gold);
+}
+.hall-home:has(> .home-faculty-statistics) .latest-news-message {
+    padding: 0 !important;
+    background: none !important;
+    color: var(--gh-ink);
+    overflow-wrap: anywhere;
+}
+.hall-home:has(> .home-faculty-statistics) .latest-news-message img {
+    max-width: 100%;
+    height: auto;
+}
+.hall-home:has(> .home-faculty-statistics) .hall-home-news-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--gh-gold);
+}
+
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro {
+    grid-area: button;
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 14px 0 0 !important;
+    border: 0 !important;
+    border-top: 1px solid var(--gh-line) !important;
+    background: none !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro > h2,
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro .hall-home-welcome::before,
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro .hall-home-welcome::after {
+    display: none !important;
+}
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro .hall-home-welcome,
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro .bb-center,
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro p {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro a.bb-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 10px 21px !important;
+    border: 1px solid #f0c980 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(#c69a5f, #a47a4a) !important;
+    color: #211208 !important;
+    font: 700 15px/1.4 Georgia, serif !important;
+    text-align: center;
+    white-space: normal;
+}
+.hall-home:has(> .home-faculty-statistics) > .hall-home-intro a.bb-button:hover {
+    background: #d9af72 !important;
+}
+.hall-home:has(> .home-faculty-statistics) a:focus-visible {
+    outline: 2px solid var(--gh-gold);
+    outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+    .hall-home:has(> .home-faculty-statistics) {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "news" "cup" "new" "top" "button";
+    }
+
+    .hall-home .home-best-students::before { display: none; }
+    .hall-home .home-latest-sorted::before { opacity: .07; }
+}
+
+/* Списки */
+
+.hall-home .home-student-list {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.hall-home .home-student {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+    min-height: 52px;
+
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    box-sizing: border-box;
+
+    border: none !important;
+    border-radius: 3px;
+
+    background: transparent;
+    color: #e8d3b4;
+
+    text-align: left;
+}
+
+.hall-home .home-student-name {
+    min-width: 0;
+
+    color: #e8d3b4 !important;
+    font: 16px/1.4 Georgia, "Times New Roman", serif;
+
+    overflow-wrap: anywhere;
+}
+
+/* Небольшие маркеры у новых студентов */
+
+.hall-home .home-latest-sorted-student::before {
+    content: "✦";
+
+    flex: 0 0 auto;
+
+    color: #b58b56;
+    font-size: 13px;
+}
+
+/* Нумерация лучших студентов */
+
+.hall-home .home-best-students .home-student-list {
+    counter-reset: gryff-student;
+}
+
+.hall-home .home-best-student {
+    counter-increment: gryff-student;
+}
+
+.hall-home .home-best-student::before {
+    content: counter(gryff-student);
+
+    flex: 0 0 16px;
+
+    color: #c8a46c;
+    font: 17px/1 Georgia, serif;
+    text-align: center;
+}
+
+/* Ссылки на профили */
+
+.hall-home .home-student-profile {
+    display: flex !important;
+    align-items: center;
+    gap: 11px;
+
+    flex: 1 1 auto;
+    min-width: 0;
+
+    color: #e8d3b4 !important;
+    text-decoration: none !important;
+}
+
+.hall-home .home-student-profile:hover .home-student-name {
+    color: #ffe7bd !important;
+}
+
+/* Аватары */
+
+.hall-home .home-student-avatar {
+    display: block;
+
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+
+    overflow: hidden;
+
+    border: 1px solid #a78150;
+    border-radius: 50%;
+}
+
+.hall-home .home-student-avatar img.avatar {
+    display: block;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+    object-fit: cover;
+
+    border: none !important;
+    border-radius: 50%;
+}
+
+/* Баллы лучших студентов */
+
+.hall-home .home-student-points {
+    flex: 0 0 auto;
+
+    margin-left: auto;
+
+    color: #d4b47e;
+    font: 400 16px/1.3 Georgia, serif;
+    white-space: nowrap;
+}
+
+
+.hall-home .home-best-student + .home-best-student { border-top: 1px solid #b78a5050 !important; }
+
+/* Графика варианта 10 */
+.hall-home:has(> .home-faculty-statistics) {
+    --gh-trophy: url("data:image/webp;base64,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");
+    --gh-lion: url("data:image/webp;base64,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");
+    --gh-tower: url("data:image/webp;base64,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");
+}
+/* КОНЕЦ CSS ГЛАВНОЙ */
